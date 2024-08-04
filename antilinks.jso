@@ -1,0 +1,14 @@
+const { model, Schema } = require('mongoose');
+
+const AntiLinksSchema = new Schema({
+  Guild: { type: String, required: true },
+  Enabled: { type: Boolean, default: false },
+  IgnoreChannels: { type: [String], default: [] },
+  IgnoreRoles: { type: [String], default: [] },
+  IgnoreUsers: { type: [String], default: [] },
+  AllowedLinks: { type: [String], default: [] },
+  Action: { type: String, default: 'delete' },
+  MuteDuration: { type: String, default: '10m' } // Default duration for mute action
+});
+
+module.exports = model('AntiLinks', AntiLinksSchema);
